@@ -57,10 +57,10 @@
   },
   {
     "id": 6,
-    "slug": "bernardino-lubido-amata-iii",
-    "name": "BERNARDINO LUBIDO AMATA III",
-    "phone": "0956 062 9238",
-    "phoneRaw": "+639560629238",
+    "slug": "froilan-dalapo",
+    "name": "FROILAN DALAPO",
+    "phone": "0917 562 5362",
+    "phoneRaw": "+639175625362",
     "email": "sales@awardscentral.com.ph",
     "address": "DM Building, #32 Visayas Avenue, Corner Congressional Avenue, Quezon City",
     "website": "www.awardscentral.com.ph",
@@ -76,16 +76,17 @@
     "address": "DM Building, #32 Visayas Avenue, Corner Congressional Avenue, Quezon City",
     "website": "www.awardscentral.com.ph",
     "websiteUrl": "https://www.awardscentral.com.ph"
-  },
+  },  
   {
     "id": 8,
-    "slug": "froilan-dalapo",
-    "name": "FROILAN DALAPO",
-    "phone": "0917 562 5362",
-    "phoneRaw": "+639175625362",
+    "slug": "bernardino-lubido-amata-iii",
+    "name": "BERNARDINO LUBIDO AMATA III",
+    "phone": "0956 062 9238",
+    "phoneRaw": "+639560629238",
     "email": "sales@awardscentral.com.ph",
     "address": "DM Building, #32 Visayas Avenue, Corner Congressional Avenue, Quezon City",
     "website": "www.awardscentral.com.ph",
     "websiteUrl": "https://www.awardscentral.com.ph"
   }
+
 ]
