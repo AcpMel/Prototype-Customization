@@ -1055,12 +1055,6 @@
               // Silently use embedded INITIAL_CARDS
             });
 
-    const handlePopState = () => {
-      setCurrentPath(window.location.pathname);
-    };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
-}, []);
         const handlePopState = () => {
           setCurrentPath(window.location.pathname);
         };
