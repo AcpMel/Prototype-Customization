@@ -1043,18 +1043,24 @@
       const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
       useEffect(() => {
-        // Try fetching cards.json dynamically in case user edited it, else fallback to INITIAL_CARDS
-        fetch('./cards.json')
-          .then(res => res.json())
-          .then(data => {
-            if (Array.isArray(data) && data.length > 0) {
-              setCards(data);
-            }
-          })
-          .catch(() => {
-            // Silently use embedded INITIAL_CARDS
-          });
+          // Try fetching cards.json dynamically in case user edited it, else fallback to INITIAL_CARDS
+          fetch('./cards.json')
+            .then(res => res.json())
+            .then(data => {
+              if (Array.isArray(data) && data.length > 0) {
+                setCards(data);
+              }
+            })
+            .catch(() => {
+              // Silently use embedded INITIAL_CARDS
+            });
 
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+}, []);
         const handlePopState = () => {
           setCurrentPath(window.location.pathname);
         };
