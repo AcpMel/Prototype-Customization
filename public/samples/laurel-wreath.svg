@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF3CD"/>
+      <stop offset="35%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#AA771C"/>
+      <stop offset="100%" stop-color="#805510"/>
+    </linearGradient>
+  </defs>
+  <!-- Laurel Wreath -->
+  <g fill="url(#goldGrad)" stroke="none">
+    <!-- Center Star -->
+    <polygon points="100,45 106,62 124,62 110,73 115,90 100,80 85,90 90,73 76,62 94,62" />
+    <!-- Left Leaves -->
+    <path d="M 90,150 C 60,140 45,115 50,85 C 53,88 62,94 62,100 C 58,118 70,135 90,145 Z"/>
+    <ellipse cx="50" cy="120" rx="8" ry="16" transform="rotate(-30 50 120)"/>
+    <ellipse cx="44" cy="98" rx="7" ry="15" transform="rotate(-15 44 98)"/>
+    <ellipse cx="48" cy="76" rx="6" ry="14" transform="rotate(10 48 76)"/>
+    <ellipse cx="60" cy="58" rx="6" ry="13" transform="rotate(35 60 58)"/>
+    <ellipse cx="78" cy="46" rx="5" ry="12" transform="rotate(60 78 46)"/>
+    <!-- Right Leaves -->
+    <path d="M 110,150 C 140,140 155,115 150,85 C 147,88 138,94 138,100 C 142,118 130,135 110,145 Z"/>
+    <ellipse cx="150" cy="120" rx="8" ry="16" transform="rotate(30 150 120)"/>
+    <ellipse cx="156" cy="98" rx="7" ry="15" transform="rotate(15 156 98)"/>
+    <ellipse cx="152" cy="76" rx="6" ry="14" transform="rotate(-10 152 76)"/>
+    <ellipse cx="140" cy="58" rx="6" ry="13" transform="rotate(-35 140 58)"/>
+    <ellipse cx="122" cy="46" rx="5" ry="12" transform="rotate(-60 122 46)"/>
+    <!-- Bottom Ribbon -->
+    <circle cx="100" cy="155" r="7" />
+    <path d="M 96,158 C 88,168 76,172 70,174 C 76,168 84,163 94,160 Z"/>
+    <path d="M 104,158 C 112,168 124,172 130,174 C 124,168 116,163 106,160 Z"/>
+  </g>
+</svg>

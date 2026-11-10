@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="sealGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5C07B"/>
+      <stop offset="50%" stop-color="#D19A66"/>
+      <stop offset="100%" stop-color="#986801"/>
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="85" fill="none" stroke="url(#sealGrad)" stroke-width="4"/>
+  <circle cx="100" cy="100" r="77" fill="none" stroke="url(#sealGrad)" stroke-width="1.5" stroke-dasharray="2,3"/>
+  <circle cx="100" cy="100" r="62" fill="none" stroke="url(#sealGrad)" stroke-width="2"/>
+  <!-- Center Crown / Monogram -->
+  <path d="M 75,115 L 82,90 L 92,102 L 100,82 L 108,102 L 118,90 L 125,115 Z" fill="url(#sealGrad)"/>
+  <rect x="75" y="118" width="50" height="4" rx="2" fill="url(#sealGrad)"/>
+  <circle cx="100" cy="78" r="3" fill="url(#sealGrad)"/>
+  <circle cx="82" cy="86" r="2.5" fill="url(#sealGrad)"/>
+  <circle cx="118" cy="86" r="2.5" fill="url(#sealGrad)"/>
+</svg>

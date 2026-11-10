@@ -1,0 +1,336 @@
+[
+  {
+    "id": "design-1794300710755",
+    "name": "TECH INNOVATION PIONEER",
+    "createdAt": "2026-11-10T08:51:50.755Z",
+    "thumbnail": null,
+    "baseMaterial": {
+      "name": "Mirror Chrome Silver",
+      "color": "#E8E8E8",
+      "roughness": 0.1,
+      "metalness": 0.95
+    },
+    "bodyMaterial": {
+      "name": "Glacier Blue Crystal",
+      "color": "#90E0EF",
+      "transmission": 0.85,
+      "roughness": 0.08,
+      "ior": 1.51
+    },
+    "textLayers": [
+      {
+        "id": "txt-301",
+        "text": "TECH INNOVATION PIONEER",
+        "fontFamily": "Orbitron",
+        "fontSize": 24,
+        "color": "#00B4D8",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 140,
+        "rotation": 0,
+        "letterSpacing": 3,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      },
+      {
+        "id": "txt-302",
+        "text": "NEXTGEN AI SYSTEMS",
+        "fontFamily": "Orbitron",
+        "fontSize": 32,
+        "color": "#FFFFFF",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 240,
+        "rotation": 0,
+        "letterSpacing": 2,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      },
+      {
+        "id": "txt-303",
+        "text": "GLOBAL TECH HORIZONS • 2026",
+        "fontFamily": "Orbitron",
+        "fontSize": 15,
+        "color": "#90E0EF",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 340,
+        "rotation": 0,
+        "letterSpacing": 3,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      }
+    ],
+    "imageLayers": [
+      {
+        "id": "img-301",
+        "src": "/samples/tech-shield.svg",
+        "name": "Tech Shield Emblem",
+        "x": 160,
+        "y": 240,
+        "width": 105,
+        "height": 105,
+        "rotation": 0,
+        "opacity": 1
+      }
+    ]
+  },
+  {
+    "id": "design-1",
+    "name": "Corporate Leadership Excellence",
+    "createdAt": "2026-11-10T08:00:00.000Z",
+    "baseMaterial": {
+      "name": "Piano Black Lacquer",
+      "color": "#111111",
+      "roughness": 0.2,
+      "metalness": 0.1
+    },
+    "bodyMaterial": {
+      "name": "Optical Crystal Clear",
+      "color": "#FFFFFF",
+      "transmission": 0.95,
+      "roughness": 0.05,
+      "ior": 1.52
+    },
+    "plateStyle": {
+      "id": "gold-plate",
+      "name": "Polished Brass & Gold",
+      "color": "#18181b",
+      "borderColor": "#D4AF37",
+      "border": true
+    },
+    "textLayers": [
+      {
+        "id": "txt-101",
+        "text": "GLOBAL LEADERSHIP AWARD",
+        "fontFamily": "Cinzel",
+        "fontSize": 28,
+        "color": "#D4AF37",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 140,
+        "rotation": 0,
+        "letterSpacing": 5,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      },
+      {
+        "id": "txt-102",
+        "text": "ALEXANDER M. HAYES",
+        "fontFamily": "Playfair Display",
+        "fontSize": 38,
+        "color": "#FDF3CD",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 240,
+        "rotation": 0,
+        "letterSpacing": 3,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      },
+      {
+        "id": "txt-103",
+        "text": "AWARDS CENTRAL PHILIPPINES • 2026",
+        "fontFamily": "Poppins",
+        "fontSize": 16,
+        "color": "#D4AF37",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 340,
+        "rotation": 0,
+        "letterSpacing": 4,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      }
+    ],
+    "imageLayers": [
+      {
+        "id": "img-101",
+        "src": "/samples/laurel-wreath.svg",
+        "name": "Laurel Emblem",
+        "x": 160,
+        "y": 240,
+        "width": 110,
+        "height": 110,
+        "rotation": 0,
+        "opacity": 1
+      }
+    ]
+  },
+  {
+    "id": "design-2",
+    "name": "Employee of the Year - Golden Star",
+    "createdAt": "2026-11-10T08:15:00.000Z",
+    "baseMaterial": {
+      "name": "Brushed Royal Gold",
+      "color": "#C5A059",
+      "roughness": 0.35,
+      "metalness": 0.85
+    },
+    "bodyMaterial": {
+      "name": "Smoked Obsidian Crystal",
+      "color": "#18181b",
+      "transmission": 0.45,
+      "roughness": 0.15,
+      "ior": 1.5
+    },
+    "plateStyle": {
+      "id": "black-matte",
+      "name": "Matte Onyx Black",
+      "color": "#0a0a0d",
+      "borderColor": "#D4AF37",
+      "border": true
+    },
+    "textLayers": [
+      {
+        "id": "txt-201",
+        "text": "EMPLOYEE OF THE YEAR",
+        "fontFamily": "Cinzel",
+        "fontSize": 26,
+        "color": "#E2BA5E",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 140,
+        "rotation": 0,
+        "letterSpacing": 4,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      },
+      {
+        "id": "txt-202",
+        "text": "SARAH VALENTINE",
+        "fontFamily": "Playfair Display",
+        "fontSize": 36,
+        "color": "#FFFFFF",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 240,
+        "rotation": 0,
+        "letterSpacing": 2,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      },
+      {
+        "id": "txt-203",
+        "text": "ANNUAL EXCELLENCE SUMMIT • 2026",
+        "fontFamily": "Poppins",
+        "fontSize": 15,
+        "color": "#E2BA5E",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 340,
+        "rotation": 0,
+        "letterSpacing": 4,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      }
+    ],
+    "imageLayers": [
+      {
+        "id": "img-201",
+        "src": "/samples/star-emblem.svg",
+        "name": "Golden Star Emblem",
+        "x": 160,
+        "y": 240,
+        "width": 115,
+        "height": 115,
+        "rotation": 0,
+        "opacity": 1
+      }
+    ]
+  },
+  {
+    "id": "design-3",
+    "name": "Tech Innovation Pioneer",
+    "createdAt": "2026-11-10T08:30:00.000Z",
+    "baseMaterial": {
+      "name": "Mirror Chrome Silver",
+      "color": "#E8E8E8",
+      "roughness": 0.1,
+      "metalness": 0.95
+    },
+    "bodyMaterial": {
+      "name": "Glacier Blue Crystal",
+      "color": "#90E0EF",
+      "transmission": 0.85,
+      "roughness": 0.08,
+      "ior": 1.51
+    },
+    "plateStyle": {
+      "id": "silver-plate",
+      "name": "Brushed Silver Plate",
+      "color": "#1f2024",
+      "borderColor": "#E0E0E0",
+      "border": true
+    },
+    "textLayers": [
+      {
+        "id": "txt-301",
+        "text": "TECH INNOVATION PIONEER",
+        "fontFamily": "Orbitron",
+        "fontSize": 24,
+        "color": "#00B4D8",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 140,
+        "rotation": 0,
+        "letterSpacing": 3,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      },
+      {
+        "id": "txt-302",
+        "text": "NEXTGEN AI SYSTEMS",
+        "fontFamily": "Orbitron",
+        "fontSize": 32,
+        "color": "#FFFFFF",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 240,
+        "rotation": 0,
+        "letterSpacing": 2,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      },
+      {
+        "id": "txt-303",
+        "text": "GLOBAL TECH HORIZONS • 2026",
+        "fontFamily": "Orbitron",
+        "fontSize": 15,
+        "color": "#90E0EF",
+        "fontWeight": "bold",
+        "x": 570,
+        "y": 340,
+        "rotation": 0,
+        "letterSpacing": 3,
+        "align": "center",
+        "curved": false,
+        "curveRadius": 350
+      }
+    ],
+    "imageLayers": [
+      {
+        "id": "img-301",
+        "src": "/samples/tech-shield.svg",
+        "name": "Tech Shield Emblem",
+        "x": 160,
+        "y": 240,
+        "width": 105,
+        "height": 105,
+        "rotation": 0,
+        "opacity": 1
+      }
+    ]
+  }
+]

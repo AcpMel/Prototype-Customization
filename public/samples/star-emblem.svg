@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="40%" stop-color="#E2BA5E"/>
+      <stop offset="80%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#6B4E04"/>
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="90" fill="url(#glowGrad)"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="url(#starGrad)" stroke-width="2" stroke-dasharray="3,3"/>
+  <circle cx="100" cy="100" r="74" fill="none" stroke="url(#starGrad)" stroke-width="1.5"/>
+  <polygon points="100,25 116,68 162,70 126,98 139,142 100,116 61,142 74,98 38,70 84,68" fill="url(#starGrad)"/>
+  <circle cx="100" cy="100" r="14" fill="#0A0A0A" stroke="url(#starGrad)" stroke-width="2"/>
+  <polygon points="100,92 102,97 108,98 104,101 105,107 100,104 95,107 96,101 92,98 98,97" fill="url(#starGrad)"/>
+</svg>
