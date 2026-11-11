@@ -167,7 +167,7 @@ export default function Viewer3D({
     // 7. Load GLB Model
     const loader = new GLTFLoader();
     loader.load(
-      '/models/shape-3.glb',
+      `${import.meta.env.BASE_URL}models/shape-3.glb`,
       (gltf) => {
         const root = gltf.scene;
         modelRef.current = root;

@@ -8,11 +8,13 @@ import {
   ChevronRight
 } from 'lucide-react';
 
+const BASE = import.meta.env.BASE_URL;
+
 const SAMPLES = [
-  { id: 'laurel', name: 'Golden Laurel Wreath', url: '/samples/laurel-wreath.svg' },
-  { id: 'star', name: 'Golden Star Emblem', url: '/samples/star-emblem.svg' },
-  { id: 'tech', name: 'Tech Shield', url: '/samples/tech-shield.svg' },
-  { id: 'seal', name: 'Corporate Seal', url: '/samples/corporate-seal.svg' },
+  { id: 'laurel', name: 'Golden Laurel Wreath', url: `${BASE}samples/laurel-wreath.svg` },
+  { id: 'star', name: 'Golden Star Emblem', url: `${BASE}samples/star-emblem.svg` },
+  { id: 'tech', name: 'Tech Shield', url: `${BASE}samples/tech-shield.svg` },
+  { id: 'seal', name: 'Corporate Seal', url: `${BASE}samples/corporate-seal.svg` },
 ];
 
 export default function ImageCustomizer({
