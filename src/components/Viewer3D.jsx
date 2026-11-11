@@ -164,107 +164,124 @@ export default function Viewer3D({
     texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
     textureRef.current = texture;
 
-    // 7. Load GLB Model
+    // 7. Load GLB Model with Fallback and Retry
     const loader = new GLTFLoader();
-    loader.load(
-      `${import.meta.env.BASE_URL}models/shape-3.glb`,
-      (gltf) => {
-        const root = gltf.scene;
-        modelRef.current = root;
+    const basePath = (import.meta.env.BASE_URL || '/').replace(/\/+$/, '') + '/';
+    const primaryUrl = `${basePath}models/shape-3.glb`;
+    const fallbackUrl = `${basePath}models/shape 3.glb`;
 
-        const b0 = new THREE.Box3().setFromObject(root);
-        const targetHeight = 2.8;
-        const initialHeight = b0.max.y - b0.min.y;
-        const scale = targetHeight / initialHeight;
-        root.scale.setScalar(scale);
-        root.updateMatrixWorld(true);
+    const handleModelLoaded = (gltf) => {
+      const root = gltf.scene;
+      modelRef.current = root;
 
-        const b1 = new THREE.Box3().setFromObject(root);
-        const center = b1.getCenter(new THREE.Vector3());
-        root.position.x = -center.x;
-        root.position.y = -b1.min.y;
-        root.position.z = -center.z;
-        root.updateMatrixWorld(true);
+      const b0 = new THREE.Box3().setFromObject(root);
+      const targetHeight = 2.8;
+      const initialHeight = b0.max.y - b0.min.y;
+      const scale = targetHeight / initialHeight;
+      root.scale.setScalar(scale);
+      root.updateMatrixWorld(true);
 
-        root.traverse((child) => {
-          if (child.isMesh) {
-            child.castShadow = true;
-            child.receiveShadow = true;
-            const name = (child.name || '').toLowerCase();
+      const b1 = new THREE.Box3().setFromObject(root);
+      const center = b1.getCenter(new THREE.Vector3());
+      root.position.x = -center.x;
+      root.position.y = -b1.min.y;
+      root.position.z = -center.z;
+      root.updateMatrixWorld(true);
 
-            if (name.includes('cylinder')) {
-              baseMeshRef.current = child;
-              child.material = new THREE.MeshStandardMaterial({
-                color: new THREE.Color(baseMaterial?.color || '#111111'),
-                roughness: baseMaterial?.roughness !== undefined ? baseMaterial.roughness : 0.2,
-                metalness: baseMaterial?.metalness !== undefined ? baseMaterial.metalness : 0.1,
-              });
-            } else {
-              plaqueMeshRef.current = child;
-              child.material = new THREE.MeshPhysicalMaterial({
-                color: new THREE.Color(bodyMaterial?.color || '#ffffff'),
-                transparent: true,
-                transmission: bodyMaterial?.transmission !== undefined ? bodyMaterial.transmission : 0.95,
-                opacity: 1,
-                roughness: bodyMaterial?.roughness !== undefined ? bodyMaterial.roughness : 0.05,
-                ior: bodyMaterial?.ior || 1.52,
-                metalness: bodyMaterial?.metalness || 0.0,
-                clearcoat: 1.0,
-                clearcoatRoughness: 0.1,
-                reflectivity: 0.9,
-                side: THREE.DoubleSide,
-              });
-            }
+      root.traverse((child) => {
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+          const name = (child.name || '').toLowerCase();
+
+          if (name.includes('cylinder')) {
+            baseMeshRef.current = child;
+            child.material = new THREE.MeshStandardMaterial({
+              color: new THREE.Color(baseMaterial?.color || '#111111'),
+              roughness: baseMaterial?.roughness !== undefined ? baseMaterial.roughness : 0.2,
+              metalness: baseMaterial?.metalness !== undefined ? baseMaterial.metalness : 0.1,
+            });
+          } else {
+            plaqueMeshRef.current = child;
+            child.material = new THREE.MeshPhysicalMaterial({
+              color: new THREE.Color(bodyMaterial?.color || '#ffffff'),
+              transparent: true,
+              transmission: bodyMaterial?.transmission !== undefined ? bodyMaterial.transmission : 0.95,
+              opacity: 1,
+              roughness: bodyMaterial?.roughness !== undefined ? bodyMaterial.roughness : 0.05,
+              ior: bodyMaterial?.ior || 1.52,
+              metalness: bodyMaterial?.metalness || 0.0,
+              clearcoat: 1.0,
+              clearcoatRoughness: 0.1,
+              reflectivity: 0.9,
+              side: THREE.DoubleSide,
+            });
           }
-        });
-
-        // 8. Create Solid 3D Base Engraving Plate
-        const plateWidth = 0.52;
-        const plateHeight = 0.18;
-        const plateDepth = 0.015;
-        const plateGeo = new THREE.BoxGeometry(plateWidth, plateHeight, plateDepth, 32, 8, 2);
-
-        const posAttr = plateGeo.attributes.position;
-        const r = 0.405;
-        for (let i = 0; i < posAttr.count; i++) {
-          const x = posAttr.getX(i);
-          const z = posAttr.getZ(i);
-          const zOffset = -(r - Math.sqrt(Math.max(0, r * r - x * x)));
-          posAttr.setZ(i, z + zOffset);
         }
-        plateGeo.computeVertexNormals();
+      });
 
-        const plateMat = new THREE.MeshStandardMaterial({
-          map: texture,
-          roughness: 0.2,
-          metalness: 0.9,
-          side: THREE.DoubleSide,
-        });
+      // 8. Create Solid 3D Base Engraving Plate
+      const plateWidth = 0.52;
+      const plateHeight = 0.18;
+      const plateDepth = 0.015;
+      const plateGeo = new THREE.BoxGeometry(plateWidth, plateHeight, plateDepth, 32, 8, 2);
 
-        const basePlateMesh = new THREE.Mesh(plateGeo, plateMat);
-        basePlateMesh.name = 'BaseEngravingPlate';
-        basePlateMesh.position.set(0, platePositionY || 0.155, 0.408);
-        basePlateMesh.castShadow = true;
-        basePlateMeshRef.current = basePlateMesh;
-
-        scene.add(basePlateMesh);
-        root.attach(basePlateMesh);
-
-        scene.add(root);
-        setLoading(false);
-
-        updateCanvasTexture();
-      },
-      (xhr) => {
-        if (xhr.total > 0) {
-          setLoadProgress(Math.round((xhr.loaded / xhr.total) * 100));
-        }
-      },
-      (error) => {
-        console.error('Error loading 3D GLB model:', error);
-        setLoading(false);
+      const posAttr = plateGeo.attributes.position;
+      const r = 0.405;
+      for (let i = 0; i < posAttr.count; i++) {
+        const x = posAttr.getX(i);
+        const z = posAttr.getZ(i);
+        const zOffset = -(r - Math.sqrt(Math.max(0, r * r - x * x)));
+        posAttr.setZ(i, z + zOffset);
       }
-    );
+      plateGeo.computeVertexNormals();
+
+      const plateMat = new THREE.MeshStandardMaterial({
+        map: texture,
+        roughness: 0.2,
+        metalness: 0.9,
+        side: THREE.DoubleSide,
+      });
+
+      const basePlateMesh = new THREE.Mesh(plateGeo, plateMat);
+      basePlateMesh.name = 'BaseEngravingPlate';
+      basePlateMesh.position.set(0, platePositionY || 0.155, 0.408);
+      basePlateMesh.castShadow = true;
+      basePlateMeshRef.current = basePlateMesh;
+
+      scene.add(basePlateMesh);
+      root.attach(basePlateMesh);
+
+      scene.add(root);
+      setLoading(false);
+
+      updateCanvasTexture();
+      handleResize();
+      setTimeout(handleResize, 100);
+    };
+
+    const tryLoad = (url, isRetry = false) => {
+      loader.load(
+        url,
+        handleModelLoaded,
+        (xhr) => {
+          if (xhr.total > 0) {
+            setLoadProgress(Math.round((xhr.loaded / xhr.total) * 100));
+          }
+        },
+        (error) => {
+          console.error(`Error loading 3D GLB model from ${url}:`, error);
+          if (!isRetry) {
+            console.warn('Retrying with fallback model URL:', fallbackUrl);
+            tryLoad(fallbackUrl, true);
+          } else {
+            setLoading(false);
+          }
+        }
+      );
+    };
+
+    tryLoad(primaryUrl);
 
     let isRunning = true;
     const animate = () => {
@@ -277,15 +294,24 @@ export default function Viewer3D({
 
     const handleResize = () => {
       if (!container || !renderer || !camera) return;
-      camera.aspect = container.clientWidth / container.clientHeight;
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      if (w === 0 || h === 0) return;
+      camera.aspect = w / h;
       camera.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
+      renderer.setSize(w, h);
     };
+
     window.addEventListener('resize', handleResize);
+    const resizeObserver = new ResizeObserver(() => {
+      handleResize();
+    });
+    resizeObserver.observe(container);
 
     return () => {
       isRunning = false;
       window.removeEventListener('resize', handleResize);
+      resizeObserver.disconnect();
       if (animFrameIdRef.current) {
         cancelAnimationFrame(animFrameIdRef.current);
       }
